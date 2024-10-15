@@ -23,7 +23,7 @@ public class UserController {
         //model.addAttribute(user);
 
 
-        if (user.getUsername().equals(verify)) {
+        if (user.getPassword().equals(verify)) {
             String message = "Welcome " + user.getUsername();
             model.addAttribute("message", message);
             return "user/index";
