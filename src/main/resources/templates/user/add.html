@@ -29,9 +29,7 @@
         </label>
     </div>
     <input type = 'submit' value = 'Sign Up'>
-    <th:block th:if="${message}">
-        <p th:text="${message}"></p>
-    </th:block>
 </form>
+<p th:if="${error}" th:text="${error}"></p>
 </body>
 </html>
