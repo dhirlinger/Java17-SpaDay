@@ -22,10 +22,14 @@ public class UserController {
     @PostMapping("")
     public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
         if(verify.equals(user.getPassword())){
+
             model.addAttribute("message", "Welcome " + user.getUsername() + "!");
             return "/user/index";
         } else {
             model.addAttribute("error","Password and verify did not match.");
+            model.addAttribute("username", user.getUsername());
+            model.addAttribute("email", user.getEmail());
+
             return "/user/add";
         }
     }
