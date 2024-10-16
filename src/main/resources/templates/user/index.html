@@ -10,9 +10,13 @@
     <a th:href="@{/}">Select your spa services!</a>
 
     <h3>Current Users</h3>
-    <ul th:for="user : ${users}"><a th:href="" th:text="${user.username}" </ul>
+    <th:block th:each="someUser : ${users}">
+        <a th:href="@{'/user/details/' + ${someUser.id}}"><p th:text="${someUser.username}"></p></a>
+    </th:block>
 
-    </ul>
+
+    <!--<a th:href="@{'/user/details/' + ${someUser.userId}}" th:text="${someUser.username}"></a>-->
+
 
 </body>
 </html>
