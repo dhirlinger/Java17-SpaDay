@@ -1,5 +1,8 @@
 package org.launchcode.models;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class User {
 
     private final int id;
@@ -7,6 +10,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private final LocalDate dateJoined;
 
     public User(String username, String email, String password) {
         this.id = nextId;
@@ -14,6 +18,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.dateJoined = LocalDate.now();
     }
 
     public String getUsername() {
@@ -42,5 +47,9 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public LocalDate getDateJoined() {
+        return dateJoined;
     }
 }
