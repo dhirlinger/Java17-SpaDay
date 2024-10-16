@@ -13,9 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    @PostMapping("add")
+    @GetMapping("")
     public String displayAddUserForm(){
-        return "add";
+
+        return "/user/add";
+    }
+
+    @PostMapping("")
+    public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
+        if(verify.equals(user.getPassword())){
+            model.addAttribute("message", "Welcome " + user.getUsername() + "!");
+            return "/user/index";
+        } else {
+            model.addAttribute("error","Password and verify did not match.");
+            return "/user/add";
+        }
     }
 
 

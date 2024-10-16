@@ -2,9 +2,18 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Test Title</title>
+    <title>Sign Up</title>
+    <link href="../../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
+    <form action="/user" method="post">
+        <label>Username: <input name="username" required /></label>
+        <label>Email: <input type="email" name="email" required /></label>
+        <label>Password: <input type="password" name="password" required /></label>
+        <label>Verify Password: <input type="password" name="verify" required /></label>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p th:if="${error}" th:text="${error}"></p>
 
 </body>
 </html>
